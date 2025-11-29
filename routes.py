@@ -44,9 +44,9 @@ def get_container_info_multiple(servers: ServerStatusList):
             now = int(datetime.now(timezone.utc).timestamp())
             container_uptime = now - container_created
 
-            server_statuses.append(ServerStatus(uuid=server, running=True, uptime=container_uptime))
+            server_statuses.append(ServerStatus(uuid=server, running=True, created=container_created, uptime=container_uptime))
         else:
-            server_statuses.append(ServerStatus(uuid=server, running=False, uptime=None))         
+            server_statuses.append(ServerStatus(uuid=server, running=False, created=None, uptime=None))      
     
     # Return final list
     return server_statuses
@@ -65,6 +65,6 @@ def get_container_info_single(uuid: str):
                 now = int(datetime.now(timezone.utc).timestamp())
                 container_uptime = now - container_created
 
-                return ServerStatus(uuid=uuid, running=True, uptime=container_uptime)
+                return ServerStatus(uuid=uuid, running=True, created=container_created, uptime=container_uptime)
             
-    return ServerStatus(uuid=uuid, running=False, uptime=None)
+    return ServerStatus(uuid=uuid, running=False, created=None, uptime=None)

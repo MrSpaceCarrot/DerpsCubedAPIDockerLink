@@ -1,4 +1,5 @@
 # Module Imports
+from datetime import datetime
 from typing import Optional, List
 from pydantic import BaseModel
 
@@ -8,6 +9,7 @@ from pydantic import BaseModel
 class ServerStatus(BaseModel):
     uuid: str
     running: bool
+    created: Optional[datetime]
     uptime: Optional[int]
 
 # ServerStatusList
