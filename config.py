@@ -20,6 +20,9 @@ class Settings(BaseSettings):
     # Authentication Settings
     AUTH_KEY: str
 
+    # Docker Settings
+    DOCKER_SOCKET_ENDPOINT: str
+
     # Specify env file
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 
