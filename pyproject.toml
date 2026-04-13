@@ -1,0 +1,36 @@
+[project]
+name = "derpscubedapidockerlink"
+version = "0.0.3"
+description = "A service to read information about game server docker containers for DerpsCubedAPI"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "annotated-doc",
+    "annotated-types",
+    "anyio",
+    "build",
+    "certifi",
+    "charset-normalizer",
+    "click",
+    "colorama",
+    "docker",
+    "fastapi",
+    "h11",
+    "idna",
+    "packaging",
+    "pip-tools",
+    "pydantic",
+    "pydantic-core",
+    "pydantic-settings",
+    "pyproject-hooks",
+    "python-dotenv",
+    "requests",
+    "sniffio",
+    "starlette",
+    "typing-extensions",
+    "typing-inspection",
+    "urllib3",
+    "uvicorn",
+    "watchfiles",
+    "wheel",
+]
