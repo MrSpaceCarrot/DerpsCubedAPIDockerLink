@@ -1,19 +1,27 @@
-FROM python:3.11-alpine
+# Build
+FROM python:3.14-slim AS builder
 
 WORKDIR /app
 
-RUN addgroup -S apigroup && adduser -S apiuser -G apigroup
+RUN pip install --no-cache-dir uv
 
-COPY ./requirements.txt /app/requirements.txt
+COPY pyproject.toml uv.lock ./
 
-RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
+RUN uv pip install --system .
 
-COPY ./ /app
+# Runtime
+FROM python:3.14-slim
 
-RUN mkdir -p /app/logs && \
-    chown -R apiuser:apigroup /app/logs
+WORKDIR /app
 
-RUN chown -R apiuser:apigroup /app
+COPY --from=builder /usr/local /usr/local
+
+COPY . .
+
+RUN addgroup --system apigroup && \
+    adduser --system --ingroup apigroup apiuser && \
+    mkdir -p /app/logs && \
+    chown -R apiuser:apigroup /app
 
 USER apiuser
 

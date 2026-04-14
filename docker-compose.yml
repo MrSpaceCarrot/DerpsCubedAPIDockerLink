@@ -8,3 +8,5 @@ services:
             - .env
         volumes:
             - //var/run/docker.sock:/var/run/docker.sock
+        group_add:
+            - 958 # Docker group id
