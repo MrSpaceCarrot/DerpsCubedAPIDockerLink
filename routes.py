@@ -29,6 +29,7 @@ def get_container_info_multiple(servers: ServerStatusList):
         
         # Set variable to check if that server is running or not
         server_present = False
+        docker_container = None
 
         # Check each container
         for container in containers:
@@ -37,10 +38,11 @@ def get_container_info_multiple(servers: ServerStatusList):
             for name in container["Names"]:
                 if str(server) in name:
                     server_present = True
+                    docker_container = container
 
         # Add item to list
         if server_present == True:
-            container_created = container["Created"]
+            container_created = docker_container["Created"]
             now = int(datetime.now(timezone.utc).timestamp())
             container_uptime = now - container_created
 
