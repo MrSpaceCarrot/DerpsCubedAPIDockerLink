@@ -13,10 +13,19 @@ import routes
 tags_metadata = [{"name": "dockerlink"}]
 
 # Create app
-app = FastAPI(title=settings.APP_TITLE, 
-              summary=settings.APP_SUMMARY,
-              version=settings.APP_VERSION,
-              redirect_slashes=False)
+if settings.APP_IN_PRODUCTION == True:
+    app = FastAPI(title=settings.APP_TITLE, 
+                summary=settings.APP_SUMMARY,
+                version=settings.APP_VERSION,
+                redirect_slashes=False,
+                docs_url=None,
+                redoc_url=None,
+                openapi_url=None)
+else:
+    app = FastAPI(title=settings.APP_TITLE, 
+                summary=settings.APP_SUMMARY,
+                version=settings.APP_VERSION,
+                redirect_slashes=False)
 
 # Add CORS middleware
 app.add_middleware(
