@@ -19,7 +19,7 @@ dependencies = [
     "idna",
     "packaging",
     "pydantic>=2.7",
-    "pydantic-core>=2.7",
+    "pydantic-core>=2.46.2",
     "pydantic-settings>=2.3",
     "pyproject-hooks",
     "python-dotenv",
