@@ -20,7 +20,7 @@ dependencies = [
     "packaging",
     "pydantic>=2.7",
     "pydantic-core>=2.7",
-    "pydantic-settings>=2.3",
+    "pydantic-settings>=2.14.0",
     "pyproject-hooks",
     "python-dotenv",
     "requests",
