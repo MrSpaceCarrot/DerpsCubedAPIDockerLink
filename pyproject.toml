@@ -18,7 +18,7 @@ dependencies = [
     "h11",
     "idna",
     "packaging",
-    "pydantic>=2.7",
+    "pydantic>=2.13.3",
     "pydantic-core>=2.7",
     "pydantic-settings>=2.3",
     "pyproject-hooks",
